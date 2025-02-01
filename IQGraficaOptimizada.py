@@ -15,7 +15,7 @@ delta = iq_grid[1] - iq_grid[0]
 def weight(iq):
     """
     Función de peso que asigna el factor reproductivo según el IQ:
-      - IQ de 0 a iq_min_op: factor 1.0
+      - IQ de 0 a iq_min_op: factor 0.5
       - IQ de iq_min_op a iq_max_op: factor 1.1
       - IQ de iq_max_op en adelante: factor 1.5
     """
