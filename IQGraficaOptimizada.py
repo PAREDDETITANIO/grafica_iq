@@ -5,7 +5,7 @@ from scipy.stats import norm
 # Parámetros iniciales
 mu_inicial = 100.0      # IQ promedio inicial
 sigma = 15.0            # Desviación estándar
-heritability = 0.6      # Heredabilidad del IQ
+heritability = 1      # Heredabilidad del IQ
 generations = 10     # Número de generaciones (años) a simular
 
 # Definimos una grilla de IQ para realizar la integración numérica
@@ -17,7 +17,7 @@ def weight(iq):
     Función de peso que asigna el factor reproductivo según el IQ:
       - IQ de 0 a 70: factor 1.0
       - IQ de 71 a 129: factor 1.1
-      - IQ de 130 en adelante: factor 1.2
+      - IQ de 130 en adelante: factor 1.5
     """
     w = np.ones_like(iq)
     k=mu_actual/mu_inicial
