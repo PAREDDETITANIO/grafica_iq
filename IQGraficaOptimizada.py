@@ -15,14 +15,14 @@ delta = iq_grid[1] - iq_grid[0]
 def weight(iq):
     """
     Función de peso que asigna el factor reproductivo según el IQ:
-      - IQ de 0 a 70: factor 1.0
-      - IQ de 71 a 129: factor 1.1
-      - IQ de 130 en adelante: factor 1.5
+      - IQ de 0 a iq_min_op: factor 1.0
+      - IQ de iq_min_op a iq_max_op: factor 1.1
+      - IQ de iq_max_op en adelante: factor 1.5
     """
     w = np.ones_like(iq)
     k=mu_actual/mu_inicial
         
-    w[(iq >= 100*k) & (iq <= 105.26315789473685*k)] = 1.1  
+    w[(iq >= 100*k) & (iq < 105.26315789473685*k)] = 1.1  
     w[iq >= 105.26315789473685*k] = 1.5                  
     w[iq < 100*k] = 0.5                    
     return w

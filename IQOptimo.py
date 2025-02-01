@@ -19,7 +19,7 @@ def weight(iq, mu_actual, iq_min, iq_max):
     w = np.ones_like(iq)
     k = mu_actual / mu_inicial  # Se calcula k dentro de la función
     
-    w[(iq >= iq_min*k) & (iq <= iq_max*k)] = 1.1  
+    w[(iq >= iq_min*k) & (iq <= iq_max*k)] = 1  
     w[iq > iq_max*k] = 1.5                  
     w[iq < iq_min*k] = 0.5                    
     return w
