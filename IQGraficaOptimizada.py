@@ -5,7 +5,7 @@ from scipy.stats import norm
 # Parámetros iniciales
 mu_inicial = 100.0      # IQ promedio inicial
 sigma = 15.0            # Desviación estándar
-heritability = 1      # Heredabilidad del IQ
+heritability = 0.6      # Heredabilidad del IQ
 generations = 10     # Número de generaciones (años) a simular
 
 # Definimos una grilla de IQ para realizar la integración numérica
