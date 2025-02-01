@@ -3,10 +3,12 @@ import matplotlib.pyplot as plt
 from scipy.stats import norm
 
 # Parámetros iniciales
+iq_max_op = 116.66666666666666
+iq_min_op = 100
 mu_inicial = 100.0      # IQ promedio inicial
 sigma = 15.0            # Desviación estándar
 heritability = 0.6      # Heredabilidad del IQ
-generations = 10     # Número de generaciones (años) a simular
+generations = 1 # Número de generaciones (años) a simular
 
 # Definimos una grilla de IQ para realizar la integración numérica
 iq_grid = np.linspace(0, 500, 10000)
@@ -22,9 +24,9 @@ def weight(iq):
     w = np.ones_like(iq)
     k=mu_actual/mu_inicial
         
-    w[(iq >= 100*k) & (iq < 105.26315789473685*k)] = 1.1  
-    w[iq >= 105.26315789473685*k] = 1.5                  
-    w[iq < 100*k] = 0.5                    
+    w[(iq >= iq_min_op*k) & (iq < iq_max_op*k)] = 1  
+    w[iq >= iq_max_op*k] = 3                  
+    w[iq < iq_min_op*k] = 0.1                    
     return w
 
 mu_list = []
