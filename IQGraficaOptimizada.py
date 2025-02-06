@@ -8,10 +8,10 @@ iq_min_op = 100
 mu_inicial = 100.0      # IQ promedio inicial
 sigma = 15.0            # Desviación estándar
 heritability = 0.6      # Heredabilidad del IQ
-generations = 1 # Número de generaciones (años) a simular
+generations = 10 # Número de generaciones (años) a simular
 
 # Definimos una grilla de IQ para realizar la integración numérica
-iq_grid = np.linspace(0, 500, 10000)
+iq_grid = np.linspace(0, 200, 10000)
 delta = iq_grid[1] - iq_grid[0]
 
 def weight(iq):
@@ -25,7 +25,7 @@ def weight(iq):
     k=mu_actual/mu_inicial
         
     w[(iq >= iq_min_op*k) & (iq < iq_max_op*k)] = 1  
-    w[iq >= iq_max_op*k] = 3                  
+    w[iq >= iq_max_op*k] = 3                   
     w[iq < iq_min_op*k] = 0.1                    
     return w
 
