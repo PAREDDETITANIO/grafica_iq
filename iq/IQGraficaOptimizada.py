@@ -26,7 +26,7 @@ def weight(iq):
         
     w[(iq >= iq_min_op*k) & (iq < iq_max_op*k)] = 1  
     w[iq >= iq_max_op*k] = 3                   
-    w[iq < iq_min_op*k] = 0.1                    
+    w[iq < iq_min_op*k] = 0.5                    
     return w
 
 mu_list = []
